@@ -7,7 +7,7 @@ interface ThemedTextInputProps extends TextInputProps {
 
 export const ThemedTextInput: React.FC<ThemedTextInputProps> = ({ label, style, ...props }) => {
     const theme = useColorScheme();
-    const isDark = theme === 'dark';
+    const isDark = theme === 'light';
 
     return (
         <View style={styles.container}>

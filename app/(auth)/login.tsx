@@ -3,17 +3,27 @@ import { StyleSheet, View } from 'react-native';
 
 import { AuthView } from '@/components/AuthView';
 import { ThemedButton } from '@/components/ThemedButton';
+import { ThemedLink } from '@/components/ThemedLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedTextInput } from '@/components/ThemedTextInput';
+import Spacer from '@/components/ui/Spacer';
 //import { GoogleSigninButton } from '@/components/GoogleSigninButton; 
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const handleLogin = async () => {
+        if (!username || !password) {
+            return;
+        }
+    };
+
     return (
         <AuthView>
             <ThemedText> Inicia sesión </ThemedText>
+
+            <Spacer height={40} />
 
             <View style={styles.form}>
                 <ThemedTextInput
@@ -29,9 +39,15 @@ const Login = () => {
                     secureTextEntry
                 />
 
-                <ThemedButton onPress={() => {}} loading={false} disabled={false}>
+                <ThemedButton onPress={handleLogin} loading={false} disabled={false}>
                     <ThemedText> Entrar </ThemedText>
                 </ThemedButton>
+
+                <ThemedText>
+                    ¿No tienes cuenta? <ThemedLink to="Registro">Regístrate</ThemedLink>
+                </ThemedText>
+
+                {/* <GoogleSigninButton /> */}
             </View>
         </AuthView>
     );
