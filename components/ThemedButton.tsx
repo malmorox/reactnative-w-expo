@@ -1,33 +1,46 @@
+import { useThemeColor } from '@/hooks/use-theme-color';
 import React from 'react';
-import { ActivityIndicator, GestureResponderEvent, StyleSheet, Text, TouchableOpacity, useColorScheme } from 'react-native';
+import {
+    ActivityIndicator,
+    GestureResponderEvent,
+    StyleSheet,
+    TouchableOpacity,
+    View,
+    ViewStyle,
+} from 'react-native';
 
 interface ThemedButtonProps {
-    title: string;
     onPress?: (event: GestureResponderEvent) => void;
     loading?: boolean;
     disabled?: boolean;
+    style?: ViewStyle;
+    children: React.ReactNode;
 }
 
-export const ThemedButton: React.FC<ThemedButtonProps> = ({ title, onPress, loading, disabled }) => {
-    const theme = useColorScheme();
-    const isDark = theme === 'dark';
-
-    const backgroundColor = disabled
-        ? (isDark ? '#333' : '#ccc')
-        : (isDark ? '#007AFF' : '#0A84FF');
+export const ThemedButton: React.FC<ThemedButtonProps> = ({
+    onPress,
+    loading = false,
+    disabled = false,
+    style,
+    children,
+}) => {
+    const backgroundColor = useThemeColor({}, 'tint');
+    const disabledColor = useThemeColor({}, 'background');
 
     return (
         <TouchableOpacity
-        onPress={onPress}
-        activeOpacity={0.7}
-        disabled={disabled || loading}
-        style={[styles.button, { backgroundColor }]}
+            onPress={onPress}
+            activeOpacity={0.7}
+            disabled={disabled || loading}
+            style={[
+                styles.button,
+                { backgroundColor: disabled ? disabledColor : backgroundColor },
+                style,
+            ]}
         >
-        {loading ? (
-            <ActivityIndicator color="#fff" />
-        ) : (
-            <Text style={styles.text}>{title}</Text>
-        )}
+            <View style={styles.content}>
+                {loading ? <ActivityIndicator color="#fff" /> : children}
+            </View>
         </TouchableOpacity>
     );
 };
@@ -36,13 +49,15 @@ const styles = StyleSheet.create({
     button: {
         borderRadius: 10,
         paddingVertical: 14,
+        paddingHorizontal: 20,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10,
     },
-    text: {
-        color: '#fff',
-        fontWeight: '600',
-        fontSize: 16,
+    content: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 6,
     },
 });
