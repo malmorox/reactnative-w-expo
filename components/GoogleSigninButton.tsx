@@ -1,15 +1,14 @@
-// import { GoogleLogoButton } from '@react-native-google-signin/google-signin';
+import { GoogleSigninButton as GoogleButton } from '@react-native-google-signin/google-signin';
+import React from 'react';
 
-// const GoogleSigninButton() {
-//     return (
-//         <GoogleLogoButton
-//         onPress={() => {
-//             // Handle sign in
-//         }}
-//         label="Sign in with Google"
-//         textStyle={{ fontFamily: 'Roboto' }}
-//         />
-//     );
-// }
-
-// export GoogleSigninButton; 
+export const GoogleSigninButton = () => {
+    return (
+        <GoogleButton
+        size={GoogleButton.Size.Wide}
+        color={GoogleButton.Color.Dark}
+        onPress={() => {
+            console.log('Google Sign-In button pressed');
+        }}
+        />
+    );
+};

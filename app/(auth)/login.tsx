@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { AuthView } from '@/components/AuthView';
+//import { GoogleSigninButton } from '@/components/GoogleSigninButton';
 import { ThemedButton } from '@/components/ThemedButton';
 import { ThemedLink } from '@/components/ThemedLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedTextInput } from '@/components/ThemedTextInput';
 import Spacer from '@/components/ui/Spacer';
-//import { GoogleSigninButton } from '@/components/GoogleSigninButton; 
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -47,7 +47,9 @@ const Login = () => {
                     ¿No tienes cuenta? <ThemedLink to="Registro">Regístrate</ThemedLink>
                 </ThemedText>
 
-                {/* <GoogleSigninButton /> */}
+                <Spacer height={30} />
+
+                {/*<GoogleSigninButton />*/}
             </View>
         </AuthView>
     );
