@@ -24,6 +24,8 @@ export const ThemedLink: React.FC<ThemedLinkProps> = ({ to, children, style }) =
 
 const styles = StyleSheet.create({
     link: {
+        margin: 0,
+        padding: 0,
         fontWeight: '600',
         textDecorationLine: 'underline',
     },

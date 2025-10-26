@@ -7,7 +7,7 @@ export const GoogleSigninButton = () => {
             size={GoogleButton.Size.Wide}
             color={GoogleButton.Color.Dark}
             onPress={() => {
-                console.log('Google Sign-In button pressed');
+                console.log('pulsado');
             }}
         />
     );

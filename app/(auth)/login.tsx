@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { AuthView } from '@/components/AuthView';
-//import { GoogleSigninButton } from '@/components/GoogleSigninButton';
+import { GoogleSigninButton } from '@/components/GoogleSigninButton';
 import { ThemedButton } from '@/components/ThemedButton';
 import { ThemedLink } from '@/components/ThemedLink';
 import { ThemedText } from '@/components/ThemedText';
@@ -43,13 +43,19 @@ const Login = () => {
                     <ThemedText> Entrar </ThemedText>
                 </ThemedButton>
 
-                <Spacer height={20} />
+                <Spacer height={8} />
 
-                <ThemedText>
+                <ThemedText style={styles.registerText}>
                     ¿No tienes cuenta? <ThemedLink to="Registro">Regístrate</ThemedLink>
                 </ThemedText>
 
-                {/*<GoogleSigninButton />*/}
+                <Spacer height={20} />
+
+                <ThemedText style={styles.orGoogle}> o </ThemedText>
+
+                <Spacer height={20} />
+
+                <GoogleSigninButton />
             </View>
         </AuthView>
     );
@@ -59,8 +65,14 @@ const styles = StyleSheet.create({
     form: {
         width: 300,
         maxWidth: 400,
-        alignSelf: 'center',
+        alignSelf: 'center'
     },
+    registerText: {
+        textAlign: 'center'
+    },
+    orGoogle: {
+        textAlign: 'center'
+    }
 });
 
 export default Login;
