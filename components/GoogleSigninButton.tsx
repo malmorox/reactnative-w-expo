@@ -4,11 +4,11 @@ import React from 'react';
 export const GoogleSigninButton = () => {
     return (
         <GoogleButton
-        size={GoogleButton.Size.Wide}
-        color={GoogleButton.Color.Dark}
-        onPress={() => {
-            console.log('Google Sign-In button pressed');
-        }}
+            size={GoogleButton.Size.Wide}
+            color={GoogleButton.Color.Dark}
+            onPress={() => {
+                console.log('Google Sign-In button pressed');
+            }}
         />
     );
 };

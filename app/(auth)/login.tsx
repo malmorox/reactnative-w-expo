@@ -43,11 +43,11 @@ const Login = () => {
                     <ThemedText> Entrar </ThemedText>
                 </ThemedButton>
 
+                <Spacer height={20} />
+
                 <ThemedText>
                     ¿No tienes cuenta? <ThemedLink to="Registro">Regístrate</ThemedLink>
                 </ThemedText>
-
-                <Spacer height={30} />
 
                 {/*<GoogleSigninButton />*/}
             </View>
