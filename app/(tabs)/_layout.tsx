@@ -1,28 +1,36 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useTheme } from '@/hooks/useTheme';
 
 export default function TabLayout() {
-    const colorScheme = useColorScheme();
+    const { theme } = useTheme();
 
     return (
-        <Tabs
-        screenOptions={{
-            tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-            headerShown: false
-        }}>
+        <Tabs 
+            screenOptions={{ 
+                headerShown: false, 
+                tabBarActiveTintColor: theme.tabIconSelected,
+                tabBarInactiveTintColor: theme.tabIconDefault,
+                tabBarStyle: {
+                    backgroundColor: theme.tabBackground,
+                    borderTopColor: theme.tabBorder
+                },
+                tabBarLabelStyle: {
+                    color: theme.tabLabel,
+                },
+            }}
+        >
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Inicio',
+                    title: 'Inicio'
                 }}
             />
             <Tabs.Screen
-                name="explore"
+                name="profile"
                 options={{
-                    title: 'Explore',
+                    title: 'Perfil'
                 }}
             />
         </Tabs>

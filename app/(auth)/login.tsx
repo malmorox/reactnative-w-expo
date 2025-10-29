@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { AuthView } from '@/components/AuthView';
 import { GoogleSigninButton } from '@/components/GoogleSigninButton';
-import { ThemedButton } from '@/components/ThemedButton';
+//import { ThemedButton } from '@/components/ThemedButton';
 import { ThemedLink } from '@/components/ThemedLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedTextInput } from '@/components/ThemedTextInput';
@@ -39,9 +39,9 @@ const Login = () => {
                     secureTextEntry
                 />
 
-                <ThemedButton onPress={handleLogin} loading={false} disabled={false}>
+                {/* <ThemedButton onPress={handleLogin} loading={false} disabled={false}>
                     <ThemedText> Entrar </ThemedText>
-                </ThemedButton>
+                </ThemedButton> */}
 
                 <Spacer height={8} />
 
