@@ -8,8 +8,7 @@ export type ThemedTextProps = TextProps & {
 export const ThemedText = ({ style, type = 'default', ...rest }: ThemedTextProps) => {
   const { theme } = useTheme();
 
-  // Definimos el color según el tipo de texto
-  let color = theme.text; // default
+  let color = theme.text;
   if (type === 'link') color = theme.background;
 
   return (

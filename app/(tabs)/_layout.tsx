@@ -1,10 +1,15 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
+import { useAuth } from '@/hooks/useAuth';
 import { useTheme } from '@/hooks/useTheme';
+import { Redirect, Tabs } from 'expo-router';
+import React from 'react';
 
 export default function TabLayout() {
     const { theme } = useTheme();
+    const { user } = useAuth();
+
+    if (!user) {
+        return <Redirect href="/(auth)/login" />;
+    }
 
     return (
         <Tabs 

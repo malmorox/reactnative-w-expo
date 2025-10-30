@@ -1,21 +1,31 @@
-import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-
 import { AuthView } from '@/components/AuthView';
 import { GoogleSigninButton } from '@/components/GoogleSigninButton';
-//import { ThemedButton } from '@/components/ThemedButton';
+import { ThemedButton } from '@/components/ThemedButton';
 import { ThemedLink } from '@/components/ThemedLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedTextInput } from '@/components/ThemedTextInput';
 import Spacer from '@/components/ui/Spacer';
+import { useAuth } from '@/hooks/useAuth';
+import { router } from 'expo-router';
+import { useState } from 'react';
+import { Alert, StyleSheet, View } from 'react-native';
 
 const Login = () => {
+    const { login } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = async () => {
         if (!username || !password) {
             return;
+        }
+
+        try {
+            await login(username, password);
+            router.replace('/(tabs)');
+        } catch (error: any) {
+            Alert.alert('Error', error.message);
+        } finally {
         }
     };
 
@@ -39,14 +49,14 @@ const Login = () => {
                     secureTextEntry
                 />
 
-                {/* <ThemedButton onPress={handleLogin} loading={false} disabled={false}>
+                <ThemedButton onPress={handleLogin} loading={false} disabled={false}>
                     <ThemedText> Entrar </ThemedText>
-                </ThemedButton> */}
+                </ThemedButton>
 
                 <Spacer height={8} />
 
                 <ThemedText style={styles.registerText}>
-                    ¿No tienes cuenta? <ThemedLink to="Registro">Regístrate</ThemedLink>
+                    ¿No tienes cuenta? <ThemedLink to="register">Regístrate</ThemedLink>
                 </ThemedText>
 
                 <Spacer height={20} />
