@@ -1,5 +1,6 @@
 import { useAuth } from '@/hooks/useAuth';
 import { useTheme } from '@/hooks/useTheme';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Redirect, Tabs } from 'expo-router';
 import React from 'react';
 
@@ -17,6 +18,7 @@ export default function TabLayout() {
                 headerShown: false, 
                 tabBarActiveTintColor: theme.tabIconSelected,
                 tabBarInactiveTintColor: theme.tabIconDefault,
+                //tabBarShowLabel: false,
                 tabBarStyle: {
                     backgroundColor: theme.tabBackground,
                     borderTopColor: theme.tabBorder
@@ -29,13 +31,13 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Inicio'
+                    tabBarIcon: () => <Ionicons name="home" />
                 }}
             />
             <Tabs.Screen
                 name="profile"
                 options={{
-                    title: 'Perfil'
+                    tabBarIcon: () => <MaterialIcons name="person" />
                 }}
             />
         </Tabs>

@@ -1,14 +1,21 @@
+import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { useTheme } from '@/hooks/useTheme';
+import { ThemeSwitcher } from '@/components/ui/ThemeSwitcher';
+import { useAuth } from '@/hooks/useAuth';
 import React from 'react';
-import { Text } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 export default function Profile() {
-    const { theme } = useTheme();
+    const { logout } = useAuth()
 
     return (
         <ThemedView>
-            <Text>Perfil</Text>
+            <ThemedText>Perfil</ThemedText>
+            <ThemeSwitcher />
+
+            <TouchableOpacity onPress={logout}>
+                <ThemedText>Cerrar sesión</ThemedText>
+            </TouchableOpacity>
         </ThemedView>
     );
 }
