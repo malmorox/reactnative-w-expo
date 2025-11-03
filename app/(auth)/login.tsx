@@ -1,9 +1,9 @@
 import { AuthButton } from '@/components/auth/AuthButton';
+import { AuthLink } from '@/components/auth/AuthLink';
+import { AuthText } from '@/components/auth/AuthText';
 import { AuthTextInput } from '@/components/auth/AuthTextInput';
 import { AuthView } from '@/components/auth/AuthView';
 import { GoogleSigninButton } from '@/components/auth/GoogleSigninButton';
-import { ThemedLink } from '@/components/ThemedLink';
-import { ThemedText } from '@/components/ThemedText';
 import Spacer from '@/components/ui/Spacer';
 import { useAuth } from '@/hooks/useAuth';
 import { router } from 'expo-router';
@@ -31,7 +31,7 @@ const Login = () => {
 
     return (
         <AuthView>
-            <ThemedText> Inicia sesión </ThemedText>
+            <AuthText> Inicia sesión </AuthText>
 
             <Spacer height={40} />
 
@@ -52,18 +52,18 @@ const Login = () => {
                 <Spacer height={8} />
 
                 <AuthButton onPress={handleLogin} disabled={false}>
-                    <ThemedText> Entrar </ThemedText>
+                    <AuthText style={styles.signInButtonText}> Entrar </AuthText>
                 </AuthButton>
 
                 <Spacer height={8} />
 
-                <ThemedText style={styles.registerText}>
-                    ¿No tienes cuenta? <ThemedLink to="register">Regístrate</ThemedLink>
-                </ThemedText>
+                <AuthText style={styles.registerText}>
+                    ¿No tienes cuenta? <AuthLink to="register">Regístrate</AuthLink>
+                </AuthText>
 
                 <Spacer height={20} />
 
-                <ThemedText style={styles.orGoogle}> o </ThemedText>
+                <AuthText style={styles.orGoogle}> o </AuthText>
 
                 <Spacer height={20} />
 
@@ -79,8 +79,13 @@ const styles = StyleSheet.create({
         maxWidth: 400,
         alignSelf: 'center'
     },
+    signInButtonText: {
+        color: '#d5ecff'
+        
+    },
     registerText: {
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#d5ecff'
     },
     orGoogle: {
         textAlign: 'center'

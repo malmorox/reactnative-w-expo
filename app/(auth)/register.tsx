@@ -1,10 +1,11 @@
+import { AuthText } from '@/components/auth/AuthText';
+import { AuthView } from '@/components/auth/AuthView';
 import React from 'react';
-import { Text, View } from 'react-native';
 
 export default function Register() {
-  return (
-    <View>
-      <Text>Página de registro</Text>
-    </View>
-  );
+    return (
+        <AuthView>
+            <AuthText>Pagina de registro</AuthText>
+        </AuthView>
+    );
 }

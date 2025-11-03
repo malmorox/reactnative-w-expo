@@ -32,7 +32,7 @@ export const AuthButton: React.FC<AuthButtonProps> = ({
 const styles = StyleSheet.create({
     button: {
         borderRadius: 10,
-        borderColor: '#FFF',
+        borderColor: '#d5ecff',
         borderWidth: 1.5,
         paddingVertical: 14,
         paddingHorizontal: 20,
