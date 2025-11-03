@@ -1,9 +1,9 @@
-import { AuthView } from '@/components/AuthView';
-import { GoogleSigninButton } from '@/components/GoogleSigninButton';
-import { ThemedButton } from '@/components/ThemedButton';
+import { AuthButton } from '@/components/auth/AuthButton';
+import { AuthTextInput } from '@/components/auth/AuthTextInput';
+import { AuthView } from '@/components/auth/AuthView';
+import { GoogleSigninButton } from '@/components/auth/GoogleSigninButton';
 import { ThemedLink } from '@/components/ThemedLink';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedTextInput } from '@/components/ThemedTextInput';
 import Spacer from '@/components/ui/Spacer';
 import { useAuth } from '@/hooks/useAuth';
 import { router } from 'expo-router';
@@ -36,22 +36,24 @@ const Login = () => {
             <Spacer height={40} />
 
             <View style={styles.form}>
-                <ThemedTextInput
+                <AuthTextInput
                     label="Nombre de usuario"
                     value={username}
                     onChangeText={setUsername}
                 />
                 
-                <ThemedTextInput
+                <AuthTextInput
                     label="Contraseña"
                     value={password}
                     onChangeText={setPassword}
                     secureTextEntry
                 />
 
-                <ThemedButton onPress={handleLogin} loading={false} disabled={false}>
+                <Spacer height={8} />
+
+                <AuthButton onPress={handleLogin} disabled={false}>
                     <ThemedText> Entrar </ThemedText>
-                </ThemedButton>
+                </AuthButton>
 
                 <Spacer height={8} />
 

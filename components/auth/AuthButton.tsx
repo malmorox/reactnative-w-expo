@@ -1,39 +1,26 @@
-import { useTheme } from '@/hooks/useTheme';
 import React from 'react';
 import {
     GestureResponderEvent,
     StyleSheet,
     TouchableOpacity,
-    View,
-    ViewStyle
+    View
 } from 'react-native';
 
-interface ThemedButtonProps {
+type AuthButtonProps = {
     onPress?: (event: GestureResponderEvent) => void;
-    loading?: boolean;
     disabled?: boolean;
-    style?: ViewStyle;
     children: React.ReactNode;
 }
 
-export const ThemedButton: React.FC<ThemedButtonProps> = ({
+export const AuthButton: React.FC<AuthButtonProps> = ({
     onPress,
-    disabled = false,
-    style,
     children,
 }) => {
-    const { theme } = useTheme();
 
     return (
         <TouchableOpacity
             onPress={onPress}
-            activeOpacity={0.7}
-            disabled={disabled}
-            style={[
-                styles.button,
-                { backgroundColor: disabled ? theme.background : theme.tint },
-                style,
-            ]}
+            style={styles.button}
         >
             <View style={styles.content}>
                 {children}
@@ -45,16 +32,17 @@ export const ThemedButton: React.FC<ThemedButtonProps> = ({
 const styles = StyleSheet.create({
     button: {
         borderRadius: 10,
+        borderColor: '#FFF',
+        borderWidth: 1.5,
         paddingVertical: 14,
         paddingHorizontal: 20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 10,
+        backgroundColor: '#115b98ff'
     },
     content: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
-        gap: 6,
+        justifyContent: 'center'
     },
 });
