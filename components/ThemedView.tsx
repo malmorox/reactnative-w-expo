@@ -6,7 +6,7 @@ type ThemedViewProps = ViewProps & {
   children: ReactNode;
 };
 
-export const ThemedView = ({ children, style, ...rest }: ThemedViewProps) => {
+const ThemedView = ({ children, style, ...rest }: ThemedViewProps) => {
   const { theme } = useTheme();
 
   return (
@@ -24,3 +24,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+export default ThemedView;

@@ -16,7 +16,7 @@ interface ThemedButtonProps {
     children: React.ReactNode;
 }
 
-export const ThemedButton: React.FC<ThemedButtonProps> = ({
+const ThemedButton: React.FC<ThemedButtonProps> = ({
     onPress,
     disabled = false,
     style,
@@ -58,3 +58,5 @@ const styles = StyleSheet.create({
         gap: 6,
     },
 });
+
+export default ThemedButton;

@@ -1,6 +1,7 @@
+import React from 'react';
 import { View } from 'react-native';
 
-export function AuthView({ children }: { children: React.ReactNode }) {
+const AuthView = ({ children }: { children: React.ReactNode }) => {
     return (
         <View
             style={{
@@ -14,3 +15,5 @@ export function AuthView({ children }: { children: React.ReactNode }) {
         </View>
     );
 }
+
+export default AuthView;

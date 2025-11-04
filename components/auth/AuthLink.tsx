@@ -9,7 +9,7 @@ type AuthLinkProps = {
     style?: object;
 };
 
-export const AuthLink: React.FC<AuthLinkProps> = ({ to, children, style }) => {
+const AuthLink: React.FC<AuthLinkProps> = ({ to, children, style }) => {
     const theme = useColorScheme();
     const navigation = useNavigation();
 
@@ -30,3 +30,5 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
     },
 });
+
+export default AuthLink;

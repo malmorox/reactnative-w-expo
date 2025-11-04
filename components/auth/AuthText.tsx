@@ -1,10 +1,10 @@
 import { StyleSheet, Text, TextProps } from 'react-native';
 
-export type AuthTextProps = TextProps & {
+type AuthTextProps = TextProps & {
     type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
 };
 
-export const AuthText = ({ style, type = 'default', ...rest }: AuthTextProps) => {
+const AuthText = ({ style, type = 'default', ...rest }: AuthTextProps) => {
     return (
         <Text
             style={[
@@ -44,3 +44,5 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
 });
+
+export default AuthText;

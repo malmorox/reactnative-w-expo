@@ -12,7 +12,7 @@ type AuthButtonProps = {
     children: React.ReactNode;
 }
 
-export const AuthButton: React.FC<AuthButtonProps> = ({
+const AuthButton: React.FC<AuthButtonProps> = ({
     onPress,
     children,
 }) => {
@@ -31,9 +31,9 @@ export const AuthButton: React.FC<AuthButtonProps> = ({
 
 const styles = StyleSheet.create({
     button: {
-        borderRadius: 10,
         borderColor: '#d5ecff',
         borderWidth: 1.5,
+        borderRadius: 10,
         paddingVertical: 14,
         paddingHorizontal: 20,
         alignItems: 'center',
@@ -46,3 +46,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 });
+
+export default AuthButton;

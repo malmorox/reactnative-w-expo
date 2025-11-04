@@ -1,9 +1,9 @@
-import { AuthButton } from '@/components/auth/AuthButton';
-import { AuthLink } from '@/components/auth/AuthLink';
-import { AuthText } from '@/components/auth/AuthText';
-import { AuthTextInput } from '@/components/auth/AuthTextInput';
-import { AuthView } from '@/components/auth/AuthView';
-import { GoogleSigninButton } from '@/components/auth/GoogleSigninButton';
+import AuthButton from '@/components/auth/AuthButton';
+import AuthLink from '@/components/auth/AuthLink';
+import AuthText from '@/components/auth/AuthText';
+import AuthTextInput from '@/components/auth/AuthTextInput';
+import AuthView from '@/components/auth/AuthView';
+import GoogleSigninButton from '@/components/auth/GoogleSigninButton';
 import Spacer from '@/components/ui/Spacer';
 import { useAuth } from '@/hooks/useAuth';
 import { router } from 'expo-router';
@@ -44,6 +44,7 @@ const Login = () => {
                 
                 <AuthTextInput
                     label="Contraseña"
+                    isPassword
                     value={password}
                     onChangeText={setPassword}
                     secureTextEntry

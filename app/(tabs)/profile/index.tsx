@@ -1,5 +1,5 @@
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import ThemedText from '@/components/ThemedText';
+import ThemedView from '@/components/ThemedView';
 import { ThemeSwitcher } from '@/components/ui/ThemeSwitcher';
 import { useAuth } from '@/hooks/useAuth';
 import React from 'react';
