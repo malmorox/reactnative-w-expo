@@ -1,5 +1,6 @@
 import { User } from "@/models/User";
 import React, { createContext, ReactNode, useState } from "react";
+import { apiLogin, apiRegister } from "@/api/auth";
 
 type AuthContextType = {
     user: User | null;
@@ -14,27 +15,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
 
     const login = async (email: string, password: string) => {
-        await new Promise((res) => setTimeout(res, 800));
-
-        if (email === "beta@beta.es" && password === "1234") {
-            setUser({
-                id: 1,
-                name: "Pruebas",
-                email,
-            });
-        } else {
-            throw new Error("Credenciales inválidas");
-        }
+        const res = await apiLogin(email, password);
     };
 
     const register = async (email: string, password: string) => {
-        await new Promise((res) => setTimeout(res, 800));
-
-        setUser({
-            id: 2,
-            name: "Nuevo Usuario",
-            email,
-        });
+        const res = await apiRegister(email, password);
     };
 
     const logout = () => {
