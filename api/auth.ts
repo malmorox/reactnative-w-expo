@@ -1,31 +1,30 @@
-import { apiFetch, ApiResponse } from "./client";
 import { User } from "@/models/User";
+import { apiFetch, ApiResponse } from "./client";
 
 export interface LoginResponse {
-  token: string;
-  user: User;
+    user: User;
 }
 
 export interface RegisterResponse {
-  user: User;
+    user: User;
 }
 
 export async function apiLogin(
-  email: string,
-  password: string
+    email_or_username: string,
+    password: string
 ): Promise<ApiResponse<LoginResponse>> {
-  return apiFetch<LoginResponse>("/login", {
-    method: "POST",
-    body: JSON.stringify({ username, password }),
-  });
+    return apiFetch<LoginResponse>("/login", {
+        method: "POST",
+        body: JSON.stringify({ email_or_username, password }),
+    });
 }
 
 export async function apiRegister(
-  email: string,
-  password: string
+    username: string,
+    password: string
 ): Promise<ApiResponse<RegisterResponse>> {
-  return apiFetch<RegisterResponse>("/register", {
-    method: "POST",
-    body: JSON.stringify({ username, password }),
-  });
+    return apiFetch<RegisterResponse>("/register", {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+    });
 }

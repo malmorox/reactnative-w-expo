@@ -12,16 +12,16 @@ import { Alert, StyleSheet, View } from 'react-native';
 
 const Login = () => {
     const { login } = useAuth();
-    const [username, setUsername] = useState('');
+    const [emailOrUsername, setEmailOrUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = async () => {
-        if (!username || !password) {
+        if (!emailOrUsername || !password) {
             return;
         }
 
         try {
-            await login(username, password);
+            await login(emailOrUsername, password);
             router.replace('/(tabs)');
         } catch (error: any) {
             Alert.alert('Error', error.message);
@@ -38,8 +38,8 @@ const Login = () => {
             <View style={styles.form}>
                 <AuthTextInput
                     label="Nombre de usuario"
-                    value={username}
-                    onChangeText={setUsername}
+                    value={emailOrUsername}
+                    onChangeText={setEmailOrUsername}
                 />
                 
                 <AuthTextInput
