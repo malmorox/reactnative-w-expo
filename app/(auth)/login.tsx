@@ -37,7 +37,7 @@ const Login = () => {
 
             <View style={styles.form}>
                 <AuthTextInput
-                    label="Nombre de usuario"
+                    label="Nombre de usuario o correo electrónico"
                     value={emailOrUsername}
                     onChangeText={setEmailOrUsername}
                 />
